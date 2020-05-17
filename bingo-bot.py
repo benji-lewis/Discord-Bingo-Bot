@@ -4,7 +4,8 @@ import random as rn
 import discord as ds
 import sys
 
-def moveOn():
+
+def moveOn(): # a simpe handler for stoping the program until user input is suplied
     exit=input()
     if exit != "":
         return True
@@ -22,7 +23,7 @@ async def on_message(message):
         await message.channel.send("YEET")
     
 
-Numbs={
+Numbs={ 
     1:"Kelly's Eye",
     2:"One little duck || Me and you",
     3:"Cup of tea || You and me",
@@ -128,8 +129,9 @@ while exi != True:
     if bool(Numbs) == False:
         break
     else:
-        num = rn.choice(list(Numbs.keys()))
-        print(Numbs[num] , num)
+        num = rn.choice(list(Numbs.keys())) ## selects a random key from the Numbs dictionary and putes it in num
+        output = Numbs[num] +" "+ str(num)
+        print(output)
         del Numbs[num]
         exi = moveOn()
 
