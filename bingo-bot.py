@@ -23,11 +23,11 @@ def moveOn(): # a simpe handler for stoping the program until user input is supl
 async def main(message):
     Numbs={ 
         1:"Kelly's Eye",
-        2:"One little duck || Me and you",
-        3:"Cup of tea || You and me",
+        2:"One little duck | Me and you",
+        3:"Cup of tea | You and me",
         4:"knock on the door",
         5:"Man alive",
-        6:"Tom Mix || Half a Dozen",
+        6:"Tom Mix | Half a Dozen",
         7:"Lucky",
         8:"Garden Gate",
         9:"Doctors Orders",
@@ -41,20 +41,20 @@ async def main(message):
         17:"Pete Shuffle",
         18:"Coming of age",
         19:"Goodbye Teens",
-        20:"One score || Getting Plenty",
+        20:"One score | Getting Plenty",
         21:"Key of the Door",
         22:"Two Little Ducks",
         23:"The lord is my shepard",
         24:"A double Dozen",
         25:"Duck and a Dive",
-        26:"Two and six, half a crown || A to Z",
+        26:"Two and six, half a crown | A to Z",
         27:"Duck and a Crutch",
         28:"In a State",
         29:"Rise and shine",
-        30:"Burlington Bertie || Dirty Gertie",
+        30:"Burlington Bertie | Dirty Gertie",
         31:"Get up and run",
         32:"buckle my shoe",
-        33:"All the Threes || Fish Chips and Peas",
+        33:"All the Threes | Fish Chips and Peas",
         34:"Ask for more",
         35:"jump and jive",
         36:"triple dozen",
@@ -71,9 +71,9 @@ async def main(message):
         47:"A lonely one",
         48:"Four Dozen",
         49:"PC",
-        50:"It's a bullseye! || Snow white",
+        50:"It's a bullseye! | Snow white",
         51:"A lonely one",
-        52:"Chicken vindaloo || Danny La Rue || Deck of Cards",
+        52:"Chicken vindaloo | Danny La Rue | Deck of Cards",
         53:"Here comes Herbie",
         54:"Man at the Door",
         55:"All the fives",
@@ -87,18 +87,18 @@ async def main(message):
         63:"Katie's bad knee",
         64:"Almost Retired",
         65:"Stop Working!",
-        66:"Clickety click ||Trent Alexander-Arnold",
+        66:"Clickety click |Trent Alexander-Arnold",
         67:"Stairway to heaven",
         68:"Pick a mate",
-        69:"Anyway up, Meal for Two, A Favourite of mine || NICE",
+        69:"Anyway up, Meal for Two, A Favourite of mine | NICE",
         70:"A lonely one",
         71:"Bang on a drum",
         72:"Dannny La Rue",
         73:"Queen Bee. Under The Tree. Lucky 3",
         74:"Hit the floor",
         75:"A lonely one",
-        76:"Trombones || Was she worth it?",
-        77:"Two Little crutches || Sunset strip",
+        76:"Trombones | Was she worth it?",
+        77:"Two Little crutches | Sunset strip",
         78:"39 more steps",
         80:"Gandhi's Breakfast ",
         81:"fat lady with a walking stick",
@@ -128,13 +128,13 @@ async def main(message):
         if bool(Numbs) == False:
             break
         else:
-            exi = moveOn()
             num = rn.choice(list(Numbs.keys())) ## selects a random key from the Numbs dictionary and putes it in num
             output = Numbs[num] +" "+ str(num)
             print(output)
             # time.sleep(1)
             await message.channel.send(output)
             del Numbs[num]
+            exi = moveOn()
     print("done")
     await message.channel.send("No More Numbers!")
     await client.logout()
