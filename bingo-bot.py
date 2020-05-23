@@ -4,7 +4,6 @@ import random as rn
 from dotenv import load_dotenv
 import asyncio
 import discord
-import time
 import os
 import sys
 
@@ -124,6 +123,7 @@ async def main(message):
     }
 
     exi = False
+
     while exi != True:
         if bool(Numbs) == False:
             break
@@ -135,6 +135,7 @@ async def main(message):
             await message.channel.send(output)
             del Numbs[num]
             exi = moveOn()
+
     print("done")
     await message.channel.send("No More Numbers!")
     await client.logout()
