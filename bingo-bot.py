@@ -9,13 +9,15 @@ import sys
 
 client = discord.Client()
 
-load_dotenv()
+load_dotenv() # to run this you need to get the dotenv lib and make a .env file (or load in your token the way you want to)
 TOKEN=os.getenv('DISCORD_TOKEN')
 
-def moveOn(): # a simpe handler for stoping the program until user input is suplied
+def moveOn(): # a simpe handler to contiue the game or execute a midgame comand or something
     exit=input()
-    if exit != "":
+    if exit != "q":
         return True
+    # elif exit != "some code":
+    #     some-function()
     else:
         return False
 
@@ -131,7 +133,7 @@ async def main(message):
             num = rn.choice(list(Numbs.keys())) ## selects a random key from the Numbs dictionary and putes it in num
             output = Numbs[num] +" "+ str(num)
             print(output)
-            # time.sleep(1)
+            time.sleep(1)
             await message.channel.send(output)
             del Numbs[num]
             exi = moveOn()
