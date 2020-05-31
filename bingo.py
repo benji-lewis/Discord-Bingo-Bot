@@ -13,14 +13,6 @@ client = discord.Client()
 load_dotenv() # to run this you need to get the dotenv lib and make a .env file (or load in your token the way you want to)
 TOKEN=os.getenv('DISCORD_TOKEN')
 
-def moveOn(): # a simpe handler to contiue the game or execute a midgame comand or something
-    exit=input()
-    if exit != "q":
-        return True
-    # elif exit != "some code":
-    #     some-function()
-    else:
-        return False
 async def main(message):
     Numbs={ 
         1:"Kelly's Eye",
@@ -136,7 +128,6 @@ async def main(message):
             time.sleep(1)
             await message.channel.send(output)
             del Numbs[num]
-            exi = moveOn()
 
     print("done")
     await message.channel.send("No More Numbers!")
