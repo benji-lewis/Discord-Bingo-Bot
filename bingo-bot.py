@@ -20,7 +20,6 @@ def moveOn(): # a simpe handler to contiue the game or execute a midgame comand 
     #     some-function()
     else:
         return False
-
 async def main(message):
     Numbs={ 
         1:"Kelly's Eye",
@@ -154,6 +153,7 @@ async def on_message(message):
     if message.content.startswith('$bingo'):
         await message.channel.send("We are Playing bingo!")
         await main(message)
+        
 
 client.run(TOKEN)
 
