@@ -3,6 +3,7 @@
 import random as rn
 from dotenv import load_dotenv
 import asyncio
+import time
 import discord
 import os
 import sys
@@ -110,17 +111,7 @@ async def main(message):
         87:"Torquay to devon",
         88:"two fat ladys",
         89:"Nearly There",
-        90:"Top of the shop",
-        91:"A lonely one",
-        92:"A lonely one",
-        93:"A lonely one",
-        94:"A lonely one",
-        95:"A lonely one",
-        96:"A lonely one",
-        97:"A lonely one",
-        98:"A lonely one",
-        99:"A lonely one",
-        100:"A lonely one",
+        90:"Top of the shop"
     }
 
     exi = False
@@ -150,10 +141,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$bingo'):
+    if message.content.startswith(':bingo'):
         await message.channel.send("We are Playing bingo!")
         await main(message)
         
+    if message.content.startswith('$bingo'):
+        await message.channel.send("We are Playing bingo!")
+        await main(message)
 
 client.run(TOKEN)
 
