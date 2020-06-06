@@ -11,7 +11,7 @@ client = discord.Client()
 
 load_dotenv() # to run this you need to get the dotenv lib and make a .env file (or load in your token the way you want to)
 TOKEN=os.getenv('DISCORD_TOKEN')
-async def main(message):
+async def main(message, delay):
     Numbs={ 
         1:[ "Kelly's Eye" ],
         2:[ "One little duck ","Me and you" ],
@@ -105,7 +105,9 @@ async def main(message):
     }
 
     exi = False
+   Start = input("Press Any key to begin") 
     while exi != True:
+        
         output = ""
         if bool(Numbs) == False:
             break
@@ -114,12 +116,20 @@ async def main(message):
             output = str(num) + ":" + "{" + rn.choice(Numbs[num]) + "}"
             print(output)
             await message.channel.send(output)
-            time.sleep(1)
+            # time.sleep(1)
+            time.sleep(delay)
             del Numbs[num]
 
     print("done")
     await message.channel.send("No More Numbers!")
-    await client.logout()
+
+def DelayMaker(Prefix , Comment):
+    delay = (Comment.lstrip(Prefix))
+    if delay == "":
+        message.channel.send("No Delay provided. Setting to 3")
+        return 3
+    else:
+        return int(delay)
 
 @client.event
 async def on_ready():
@@ -127,16 +137,27 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    Starter_Benjisoft = "<:bingo:716730924955467846>"
+    Starter_UTCRLive = "<:bingo:id"
+    ## this is hard coded and will need to be changed for each server. 
+    ## If there is a better way make a pull request
     if message.author == client.user:
         return
 
-    if message.content.startswith(':bingo'):
+    if message.content.startswith( Starter_Benjisoft ):
         await message.channel.send("We are Playing bingo!")
-        await main(message)
-        
-    if message.content.startswith('$bingo'):
-        await message.channel.send("We are Playing bingo!")
-        await main(message)
 
+        UnfilteredDelay = message.content
+        delay = DelayMaker(Starter_Benjisoft, UnfilteredDelay)
+        await main(message, delay)
+
+
+    if message.content.startswith( Starter_UTCRLive):
+        await message.channel.send("We are Playing bingo!")
+
+        UnfilteredDelay = message.content
+        delay = DelayMaker(Starter_UTCRLive, UnfilteredDelay)
+        await main(message, delay)
+        
 client.run(TOKEN)
 
