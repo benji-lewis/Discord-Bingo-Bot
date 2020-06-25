@@ -105,7 +105,6 @@ async def main(message, delay):
     }
 
     exi = False
-   Start = input("Press Any key to begin") 
     while exi != True:
         
         output = ""
