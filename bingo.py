@@ -81,11 +81,11 @@ async def main(message, delay):
         66:[ "Clickety click ","Trent Alexander-Arnold" ],
         67:[ "Stairway to heaven" ],
         68:[ "Pick a mate" ],
-        69:[ "Anyway up, Meal for Two, A Favourite of mine also (NICE)" ],
+        69:[ "Anyway up", "Meal for Two", "A Favourite of mine also (NICE)" ],
         70:[ "A lonely one" ],
         71:[ "Bang on a drum" ],
         72:[ "Dannny La Rue" ],
-        73:[ "Queen Bee. Under The Tree. Lucky 3" ],
+        73:[ "Queen Bee", "Under The Tree", "Lucky 3" ],
         74:[ "Hit the floor" ],
         75:[ "A lonely one" ],
         76:[ "Trombones ","Was she worth it?" ],
@@ -125,7 +125,6 @@ async def main(message, delay):
 def DelayMaker(Prefix , Comment):
     delay = (Comment.lstrip(Prefix))
     if delay == "":
-        message.channel.send("No Delay provided. Setting to 3")
         return 3
     else:
         return int(delay)
@@ -137,7 +136,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     Starter_Benjisoft = "<:bingo:716730924955467846>"
-    Starter_UTCRLive = "<:bingo:id"
+    Starter_UTCRLive = "<:bingo:719483447600611421>"
     ## this is hard coded and will need to be changed for each server. 
     ## If there is a better way make a pull request
     if message.author == client.user:
